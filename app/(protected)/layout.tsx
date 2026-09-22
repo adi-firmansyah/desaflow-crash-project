@@ -4,10 +4,10 @@ import { requireSession } from "@/lib/auth-session";
 
 export default async function ProtectedLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
-  const session = await requireSession();
+}>) {
+  await requireSession();
 
   return <>{children}</>;
 }
